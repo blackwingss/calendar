@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/item/item",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#3BC4FF",
+    "navigationBarTitleText": "Calendar",
+    "navigationBarTextStyle":"White"
+  }
+}

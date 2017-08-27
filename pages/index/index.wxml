@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view class="wrapper">
+  <view class="og-calendar">
+    <view class="header">
+      <view class="btn menu" bindtap="changeDateEvent" data-year="{{data.beforeYear}}" data-month="{{data.beforMonth}}"> 
+        <image src="../../images/btn-menu.png"></image>
+      </view>
+      <view class="date-info">
+        <text>June</text>
+      </view>
+      <view class="btn calendar" bindtap="changeDateEvent" data-year="{{data.afterYear}}" data-month="{{data.afterMonth}}">
+        <image src="../../images/btn-calendar.png"></image>
+      </view>
+    </view>
+    <view class="week row">
+      <view class="col">
+        <text>Mon</text>
+      </view>
+      <view class="col">
+        <text>Tue</text>
+      </view>
+      <view class="col">
+        <text>Wed</text>
+      </view>
+      <view class="col">
+        <text>Thu</text>
+      </view>
+      <view class="col">
+        <text>Fri</text>
+      </view>
+      <view class="col">
+        <text>Sat</text>
+      </view>
+      <view class="col">
+        <text>Sun</text>
+      </view>
+    </view>
+    <view class="body row">  
+      <block wx:for="{{dates}}" wx:key="_id">
+        <view bindtap="dateClickEvent" data-year="{{item.year}}" data-month="{{item.month}}" data-date="{{item.date}}" class="col {{data.selected.date == item.date && data.selected.year==item.year && data.selected.month == item.month ? 'current' : ''}} {{item.active ? 'active' : ''}}">
+          <text>{{item.date}}</text>
+        </view> 
+      </block>
+    </view>
+  </view>
+</view>
+
+<block wx:for="{{currentItemList}}" wx:key="id" wx:for-item="item">
+  <view class="item">
+    <image src="{{item.imgSrc}}"></image>
+    <view class="item_content">
+      <view class="item_content-header">
+        <text class="header-text">
+          {{item.title}}
+        </text>
+        <text class="header-time">
+          {{item.time}}
+        </text>
+      </view>
+      <view class="item_content-text">
+        {{item.content}}
+      </view>
+    </view>
+  </view>  
+</block>
+<navigator class="addItem" url="/pages/item/item">+</navigator>
